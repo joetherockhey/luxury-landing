@@ -66,8 +66,8 @@ footer{margin-top:28px;font-size:12px;color:var(--muted)}
 
   <div class="why">
     <h2>What I think is going on</h2>
-    <p>The content stays the same size on every screen. On a laptop that leaves a thin margin, 5% of the screen’s width on the left. On a 27″ monitor all the extra space turns into empty margin, so the left margin becomes 20% of the screen’s width. The menu bar still stretches edge to edge, so the logo and the content no longer line up, and you still only see 2.7 offers, same as the laptop.</p>
-    <p>One fix: let the margin grow with the screen so it stays at 5%, instead of keeping the content a fixed size. Big screens then show about 3.5 offers per row and the page lines up with the header.</p>
+    <p>The content and the offer carousels stay the same width no matter how big the screen is. The page centres a fixed-width content column, and the carousels still run off the right-hand edge as designed. So on a large monitor the right side looks full, but you're left with a big empty margin on the left: 20% of the screen's width, compared with 5% on a laptop.</p>
+    <p>The fix: the site already knows how wide the browser window is, so the layout can respond to it. Setting the side margins as a percentage of the window width (say 5%), or adding a breakpoint for wide screens, would let the content and carousels grow with the screen. A large monitor would then show about 3.5 offers per row instead of 2.7, and the content would line up with the logo and menu bar.</p>
   </div>
 
   <footer>Unofficial mock-up by Joseph Hoffmann, made for discussion. Not affiliated with Luxury Escapes. Photos and brand © Luxury Escapes.</footer>
