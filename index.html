@@ -35,7 +35,7 @@ figcaption a{margin-left:auto;font-size:13px;color:var(--teal);font-weight:600;w
 .monitor .foot{width:34%;height:8px;margin:0 auto;background:#2f2f31;border-radius:8px 8px 3px 3px}
 /* margin markers drawn over the today screens */
 .mark{position:absolute;top:0;bottom:0;left:0;background:rgba(210,34,60,.16);border-right:2px dashed var(--red);pointer-events:none;display:flex;align-items:center;justify-content:center}
-.mark i{font-style:normal;background:var(--red);color:#fff;font-weight:700;font-size:13px;border-radius:4px;padding:1px 6px}
+.mark i{position:absolute;left:calc(100% + 6px);top:45%;font-style:normal;background:var(--red);color:#fff;font-weight:700;font-size:13px;border-radius:4px;padding:1px 6px}
 .mark.ok{background:rgba(17,70,79,.14);border-color:var(--teal)}.mark.ok i{background:var(--teal)}
 .hint{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
 .why{background:#fff;border-radius:12px;padding:20px;font-size:15px}
@@ -52,17 +52,17 @@ footer{margin-top:28px;font-size:12px;color:var(--muted)}
 
   <figure>
     <figcaption><span class="n">1</span><div><b>Lenovo 14″ laptop</b><br><span>1920×1200 at 150% = 1280px wide</span></div><a href="mock.html" target="_blank">Full size ↗</a></figcaption>
-    <div class="laptop"><div class="lid"><div class="screen" data-w="1280" data-h="800" data-mark="5.5" data-ok><iframe src="mock.html" title="Laptop view" loading="lazy"></iframe></div></div><div class="base"></div></div>
+    <div class="laptop"><div class="lid"><div class="screen" data-w="1280" data-h="800" data-mark="5.5" data-label="5%" data-ok><iframe src="mock.html" title="Laptop view"></iframe></div></div><div class="base"></div></div>
   </figure>
 
   <figure>
     <figcaption><span class="n">2</span><div><b>HP 27″ monitor, today</b><br><span>1920×1080 = 1920px wide</span></div><a href="mock.html" target="_blank">Full size ↗</a></figcaption>
-    <div class="monitor"><div class="bezel"><div class="screen" data-w="1920" data-h="1080" data-mark="20.3"><iframe src="mock.html" title="27-inch monitor today" loading="lazy"></iframe></div></div><div class="neck"></div><div class="foot"></div></div>
+    <div class="monitor"><div class="bezel"><div class="screen" data-w="1920" data-h="1080" data-mark="20.3"><iframe src="mock.html" title="27-inch monitor today"></iframe></div></div><div class="neck"></div><div class="foot"></div></div>
   </figure>
 
   <figure>
     <figcaption><span class="n">3</span><div><b>HP 27″ monitor, what it could look like</b><br><span>Margins kept at 5% of the screen</span></div><a href="mock.html?v=wide" target="_blank">Full size ↗</a></figcaption>
-    <div class="monitor"><div class="bezel"><div class="screen" data-w="1920" data-h="1080" data-mark="5" data-ok><iframe src="mock.html?v=wide" title="27-inch monitor proposed" loading="lazy"></iframe></div></div><div class="neck"></div><div class="foot"></div></div>
+    <div class="monitor"><div class="bezel"><div class="screen" data-w="1920" data-h="1080" data-mark="5" data-ok><iframe src="mock.html?v=wide" title="27-inch monitor proposed"></iframe></div></div><div class="neck"></div><div class="foot"></div></div>
   </figure>
 
   <div class="why">
@@ -83,7 +83,7 @@ document.querySelectorAll('.screen').forEach(s => {
   const m = document.createElement('div');
   m.className = 'mark' + ('ok' in s.dataset ? ' ok' : '');
   m.style.width = s.dataset.mark + '%';
-  m.innerHTML = `<i>${Math.round(s.dataset.mark)}%</i>`;
+  m.innerHTML = `<i>${s.dataset.label || Math.round(s.dataset.mark) + "%"}</i>`;
   s.append(m);
   // markers fade after a few seconds so they don't block the mock
   setTimeout(() => { m.style.transition = 'opacity 1s'; m.style.opacity = 0 }, 6000);
