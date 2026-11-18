@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing page mock-up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#11464f; --ink:#161616; --muted:#555; --beige:#f7f5ef; --blue:#2a48b0; --green:#5ef0b4; --line:#e3e1dc;
+  /* TODAY: content is a fixed 1140px column, centred. Spare width becomes side margin. */
+  --gutter:max(24px, calc((100vw - 1140px) / 2));
+}
+/* PROPOSED: margins stay 5% of the screen, so the content grows with it. */
+html.wide{--gutter:5vw}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.4 Inter,system-ui,sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.serif{font-family:"Source Serif 4",Georgia,serif;font-weight:400;letter-spacing:-.01em}
+.serif em{font-style:italic;font-weight:600}
+.wrap{padding-inline:var(--gutter)}
+
+/* header: runs edge to edge on the real site (26px in) */
+.util{background:var(--beige);height:32px;display:flex;align-items:center;gap:22px;padding:0 26px 0 14px;font-size:13px}
+.util .g{margin-right:auto}.util .g b{color:#4285f4;font-weight:500}
+.util span{display:flex;align-items:center;gap:6px}
+.head{height:64px;display:flex;align-items:center;gap:22px;padding:0 26px}
+.logo{display:flex;align-items:center;gap:8px;font-size:22px;letter-spacing:.02em;color:var(--teal);font-weight:400}
+.logo i{width:26px;height:26px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:#fff;font:italic 600 13px "Source Serif 4",serif}
+.logo b{font-weight:600}
+.search{flex:1;margin:0 50px;height:40px;border:1px solid var(--line);background:var(--beige);border-radius:20px;display:flex;align-items:center;gap:12px;padding:0 16px;color:#333}
+.head .r{display:flex;align-items:center;gap:28px;font-size:15px}
+.login{border:1.5px solid var(--teal);border-radius:22px;padding:9px 18px;color:var(--teal);position:relative}
+.login:after{content:"";position:absolute;right:3px;top:-2px;width:8px;height:8px;border-radius:50%;background:#e4002b}
+.nav{height:50px;display:flex;align-items:center;gap:24px;padding:0 26px;border-bottom:1px solid var(--line);font-size:14.5px;font-weight:500}
+.nav .sp{margin-left:auto;font-size:12px;font-weight:400;display:flex;gap:24px;align-items:center}
+.nav .sp b{font-size:16px;font-weight:500;letter-spacing:.08em}.nav .sp b.lp{color:#3a5bc7}
+.new{position:relative}.new:after{content:"NEW";position:absolute;top:-14px;right:-4px;background:#e4002b;color:#fff;font-size:8px;font-weight:700;padding:1px 4px;border-radius:6px}
+@media (max-width:1400px){.nav .x{display:none}.search{margin:0 20px}}
+
+/* sections */
+section{padding:42px 0 56px}
+.hero{background:var(--teal);color:#fff}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.sh h2{font-size:38px}
+.sh a{font-size:14px;font-weight:600;border-bottom:1.5px solid currentColor;padding-bottom:2px}
+.rail-box{position:relative}
+/* rails start at the content edge but run off the right of the screen */
+.rail{display:flex;gap:22px;overflow-x:auto;scroll-behavior:smooth;padding:0 var(--gutter) 4px;scroll-padding-left:var(--gutter);scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.arrow{position:absolute;top:290px;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 2px 8px #0003;display:grid;place-items:center;color:#111;z-index:2}
+.arrow.next{right:32px}.arrow.prev{left:32px;display:none}
+
+.card{flex:0 0 510px;background:#fff;border-radius:10px;overflow:hidden;color:var(--ink);border:1px solid var(--line);display:flex;flex-direction:column}
+.card .im{height:287px;position:relative;background:#ccc center/cover}
+.heart{position:absolute;right:16px;top:16px;width:28px;height:28px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#d2223c}
+.heart svg{width:16px;height:16px}.heart.on svg{fill:#d2223c}
+.ends{position:absolute;left:16px;top:16px;background:#c4461f;color:#fff;font-size:12.5px;font-weight:600;padding:3px 8px;border-radius:3px}
+.card .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.loc{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#333}.loc svg{width:14px;height:14px}
+.score{margin-left:auto;background:#7d6d4d;color:#fff;font-size:12px;font-weight:600;padding:2px 6px;border-radius:3px}
+.hn{font-size:14px;margin-top:6px}.ti{font-size:14.5px;font-weight:600;line-height:1.4}
+.perks{font-size:12px;color:#222;margin-top:6px;display:grid;gap:3px}.perks div{display:flex;gap:6px;align-items:center}.perks svg{width:13px;height:13px}
+.more{font-size:12px;font-weight:600;margin-top:4px}
+.tags{display:flex;gap:6px;margin:8px 0 6px}.tag{border:1px solid var(--line);padding:3px 8px;font-size:12px;font-weight:500}.tag.o{background:#c4461f;color:#fff;border-color:#c4461f}
+.foot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:auto}
+.foot .p{font-size:12.5px;color:#333}.foot .p big{font-size:21px;font-weight:600;color:var(--blue)}.foot .p small{color:var(--blue);font-size:12px}
+.pct{background:var(--green);border-radius:10px;padding:1px 7px;font-weight:600;margin-left:4px}
+.view{background:var(--teal);color:#fff;border-radius:22px;padding:11px 24px;font-weight:600;font-size:14px}
+.view:hover,.login:hover{filter:brightness(1.15)}
+
+.perksbox{background:var(--beige);border-radius:24px;padding:36px 40px 40px;text-align:center}
+.perksbox h3{font-size:26px;margin-bottom:28px}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font-size:14px;color:#333}
+.four svg{width:28px;height:28px;color:var(--teal);margin:0 auto 12px;display:block}
+.btns{margin-top:28px;display:flex;gap:24px;justify-content:center;align-items:center}
+.btns a:last-child{border-bottom:1.5px solid;padding-bottom:2px}
+.pills{display:flex;gap:6px;margin:-12px 0 24px}
+.pill{border:1px solid #777;border-radius:18px;padding:6px 11px;font-size:14px}.pill.on{border:2px solid #111;font-weight:600}
+.dest{flex:0 0 180px;font-weight:600;font-size:15px}.dest div{height:180px;border-radius:8px;background:#ccc center/cover;margin-bottom:12px;transition:transform .2s}.dest:hover div{transform:scale(1.03)}
+.banner{display:flex;height:160px;border-radius:12px;overflow:hidden;background:var(--teal);color:#fff;align-items:center}
+.banner .im{width:370px;height:100%;background:url(img/banner.jpg) center/cover}
+.banner .t{flex:1;padding:0 40px}.banner .t span{background:var(--green);color:#063;font-size:12px;font-weight:600;padding:3px 8px;border-radius:2px}
+.banner h4{font-size:25px;margin-top:10px}.banner button{background:#fff;color:#111;border-radius:24px;padding:13px 16px;margin-right:40px;font-size:15px}
+footer{background:#0b3238;color:#cfe;font-size:13px;padding:28px var(--gutter);text-align:center}
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:#111;color:#fff;padding:12px 20px;border-radius:8px;font-size:15px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:9}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<script>if(new URLSearchParams(location.search).get('v')==='wide')document.documentElement.classList.add('wide')</script>
+
+<div class="util">
+  <span class="g"><b>Google</b> 4.7/5</span>
+  <span>Contact us 24 hours, 7 days</span>
+  <span><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>1300 88 99 00</span>
+  <span><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-12 7l-5 1 1-4a8 8 0 1 1 16-4z"/></svg>Chat Now</span>
+  <span><svg viewBox="0 0 24 24"><path d="M4 10h16M5 10v10h14V10M3 10l2-6h14l2 6M10 20v-5h4v5"/></svg>Visit us</span>
+</div>
+<div class="head">
+  <svg viewBox="0 0 24 24" style="width:22px"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  <a class="logo" href="#"><i>le</i><span><b>LUXURY</b>ESCAPES</span></a>
+  <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Search our exclusive travel offers</div>
+  <div class="r"><span>🇦🇺 AUD</span><span>✦ AI TripPlanner</span><a class="login" href="#">Log in</a></div>
+</div>
+<nav class="nav">
+  <a href="#">Hotels</a><a href="#">Homes &amp; Villas</a><a href="#">Maldives Bundles</a><a href="#">Flights</a><a href="#">Tours</a><a href="#">Cruises</a><a href="#">Inspiration</a>
+  <a class="x" href="#">Experiences</a><a class="x" href="#">Shop</a><a class="x new" href="#">Transfers &amp; Cars</a><a href="#">More ⌄</a>
+  <div class="sp"><span>Earn points with <b>SOCIÉTÉ</b></span><span>Join our VIP Travel Club <b class="lp">LUXPLUS+</b></span></div>
+</nav>
+
+<section class="hero">
+  <div class="wrap sh"><h2 class="serif">Today’s top <em>exclusive</em> offers</h2><a href="#">View all</a></div>
+  <div class="rail-box" data-rail="top"></div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap"><div class="perksbox">
+    <h3 class="serif">Exclusive prices and <em>more</em> with every booking</h3>
+    <div class="four">
+      <div><svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-3 4.5 4.5 0 0 1 8 3c0 6-8 11-8 11z"/></svg>Trusted by 15 million+<br>travellers worldwide</div>
+      <div><svg viewBox="0 0 24 24"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="8" cy="8" r="1.5"/></svg>Unlock thousands of exclusive offers<br>with exceptional value</div>
+      <div><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2-5.5-3-5.5 3 1-6.2L3 9.6l6.2-.9z"/></svg>Earn &amp; redeem Société Points with<br>every booking</div>
+      <div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Our team are available 24 hours,<br>7 days</div>
+    </div>
+    <div class="btns"><a class="view" href="#">Sign up and save</a><a href="#">Learn more about us</a></div>
+  </div></div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap sh"><h2 class="serif" style="font-size:34px">Immerse yourself in trending <em>destinations</em></h2><a href="#" style="border:0;font-weight:500">🗺 View map</a></div>
+  <div class="wrap pills"><button class="pill on">Places to stay</button><button class="pill">Cruising the seas</button><button class="pill">Guided group tours</button></div>
+  <div class="rail-box" data-rail="dest"></div>
+  <div class="wrap" style="margin-top:40px"><div class="banner"><div class="im"></div><div class="t"><span>Limited Time Only</span><h4 class="serif">Our Best Maldives Deals Ever</h4></div><button>Book now</button></div></div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap sh"><h2 class="serif" style="font-size:34px">Australia’s <em>only</em> non-stop flights to the Maldives</h2><a href="#" style="color:#111">View all</a></div>
+  <div class="rail-box" data-rail="mald"></div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap sh"><h2 class="serif" style="font-size:34px">Offers <em>ending</em> soon</h2></div>
+  <div class="rail-box" data-rail="end"></div>
+</section>
+
+<footer>Unofficial mock-up for discussion, made by Joseph Hoffmann. Not affiliated with Luxury Escapes. Photos and brand © Luxury Escapes.</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const ic={pin:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>',
+heart:'<svg viewBox="0 0 24 24"><path d="M12 20s-8-5-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15 12 20 12 20z"/></svg>',
+ok:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>',
+next:'<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>',prev:'<svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg>'};
+const H=(img,loc,score,name,title,perks,more,tags,nights,price,unit,non,val,pct,ends)=>({img,loc,score,name,title,perks,more,tags,nights,price,unit,non,val,pct,ends});
+const room='/room with LUXPLUS+', pp='/per person with LUXPLUS+', mb=['Hotel & Flight bundle','!Return for Free'];
+const offers={
+top:[H('hamilton','Hamilton Island, Queensland','8.4','Reef View Hotel','Iconic Hamilton Island Oasis near Great Barrier Reef with Daily Breakfast & A$100 Resort Credit',['Return Hamilton Island airport or marina transfers','Non-motorised water sports equipment hire','A$100 hotel credit per package'],2,['New'],'4 nights from','A$1,619',room,'A$1,699','A$2,804','-39%'),
+ H('fiji','Denarau Island, Fiji','9.0','Radisson Blu Resort, Fiji Denarau Island','Fiji Oceanfront Bliss with Daily Breakfast, Nightly Dinner & One Child Stays Free',['One child (12 and under) stays and eats free','Complimentary non-motorised watersports and resort activities','20% discount on spa treatments'],2,['New'],'5 nights from','A$1,699',room,'A$1,799','A$2,850','-36%'),
+ H('melbourne','Melbourne, Victoria','9.1','Pan Pacific Melbourne','Award-Winning Melbourne Riverfront Luxury with Daily Breakfast & Lounge Upgrades Available',['Daily A$25 dining credit per package','Guaranteed 1pm late checkout','Daily buffet breakfast'],3,['New'],'2 nights from','A$479',room,'A$499','A$1,192','-58%'),
+ H('nautica','Atol Malé, Maldives','9.2','Villa Nautica','Maldives All-Inclusive Island Glamour with Unlimited Free-Flow Drinks',['Unlimited free-flow drinks','World-class dive centre','Early check-in and late checkout'],6,['New'],'5 nights from','A$2,249',room,'A$2,399','A$6,100','-63%'),
+ H('standard','Huruvalhi Island, Maldives','9.0','The Standard, Maldives by Hyatt','Maldives Private Pool Villa Glamour with Daily Breakfast & Lunch',['Daily breakfast and lunch','Kids’ club with water park','Early check-in and late checkout'],5,['New'],'5 nights from','A$2,590',room,'A$2,750','A$7,200','-64%')],
+mald:[H('hardrock','South Male Atoll, Maldives','9.2','Hard Rock Hotel Maldives','Award-Winning Maldives Icon with Daily Breakfast, Speedboat Transfers & International Flights',['Direct return flights from Melbourne to Malé','Complimentary use of snorkelling gear, kayaks and pedal boats','Early check-in & late checkout, subject to availability'],7,mb,'5 nights & flights from','A$1,950',pp,'A$3,199','A$5,069','-55%'),
+ H('nautica','Atol Malé, Maldives','9.2','Villa Nautica','Maldives All-Inclusive Island Glamour with Unlimited Free-Flow Drinks & International Flights',['Direct return flights from Melbourne to Malé','World-class dive centre with access to Manta Reef, Banana Point and more','Early check-in and late checkout (subject to availability)'],14,mb,'5 nights & flights from','A$2,949',pp,'A$4,298','A$8,619','-71%'),
+ H('standard','Huruvalhi Island, Maldives','9.0','The Standard, Maldives by Hyatt','Maldives Private Pool Villa Glamour with Daily Breakfast, Lunch & International Flights',['Return flights from Melbourne to Malé','Early check-in and late checkout (subject to availability)','Family-friendly facilities & kids’ club with water park'],8,mb,'5 nights & flights from','A$3,050',pp,'A$4,299','A$8,830','-63%')],
+end:[H('end1','Bali, Indonesia','8.9','Beachfront Resort','Tropical Pool Villa Escape with Daily Breakfast & Spa Credit',['Daily breakfast','A$100 spa credit','Late checkout'],3,['New'],'5 nights from','A$1,299',room,'A$1,399','A$2,600','-50%'),
+ H('end2','Nagambie, Victoria','8.7','The Mitchelton Hotel','Goulburn Valley Winery Retreat with Daily Breakfast & Wine Tasting',['Daily breakfast','Wine tasting for two','Late checkout'],2,['New'],'2 nights from','A$549',room,'A$599','A$1,050','-48%'),
+ H('fiji','Denarau Island, Fiji','9.0','Radisson Blu Resort','Fiji Oceanfront Bliss with Daily Breakfast & Nightly Dinner',['Kids stay and eat free','Free watersports','Spa discount'],2,[],'5 nights from','A$1,699',room,'A$1,799','A$2,850','-36%','Ends in 2 days'),
+ H('hamilton','Hamilton Island, Queensland','8.4','Reef View Hotel','Iconic Hamilton Island Oasis with Daily Breakfast',['Airport transfers','Water sports hire','Resort credit'],2,[],'4 nights from','A$1,619',room,'A$1,699','A$2,804','-39%','Ends in 3 days')]};
+const dests={places:['maldives:Maldives','australia:Australia','nsw:New South Wales','victoria:Victoria','vietnam:Vietnam','fiji-d:Fiji','newyork:New York'],
+ cruising:['fiji-d:South Pacific','australia:Sydney Harbour','maldives:Indian Ocean','vietnam:Ha Long Bay','newyork:North America'],
+ tours:['vietnam:Vietnam','nsw:Blue Mountains','newyork:USA','victoria:Melbourne','fiji-d:Fiji Islands']};
+
+const card=o=>`<article class="card"><div class="im" style="background-image:url(img/${o.img}.jpg)">${o.ends?`<span class="ends">${o.ends}</span>`:''}<button class="heart" aria-label="Save">${ic.heart}</button></div>
+<div class="bd"><div class="loc">${ic.pin}${o.loc}<span class="score">${o.score}</span></div><div class="hn">${o.name}</div><div class="ti">${o.title}</div>
+<div class="perks">${o.perks.map(p=>`<div>${ic.ok}${p}</div>`).join('')}</div><div class="more">+${o.more} more</div>
+<div class="tags">${o.tags.map(t=>t[0]=='!'?`<span class="tag o">✈ ${t.slice(1)}</span>`:`<span class="tag">${t}</span>`).join('')}</div>
+<div class="foot"><div class="p">${o.nights}<br><big>${o.price}</big> <small>${o.unit}</small><br>Non-member ${o.non}<br><b>Valued up to ${o.val}</b><span class="pct">${o.pct}</span></div><button class="view">View</button></div></div></article>`;
+const dest=d=>{const[i,n]=d.split(':');return `<a class="dest" href="#"><div style="background-image:url(img/${i}.jpg)"></div>${n}</a>`};
+
+function fill(box,html){
+  box.innerHTML=`<div class="rail">${html}</div><button class="arrow prev" aria-label="Previous">${ic.prev}</button><button class="arrow next" aria-label="Next">${ic.next}</button>`;
+  const r=box.querySelector('.rail'),p=box.querySelector('.prev'),n=box.querySelector('.next');
+  if(box.dataset.rail=='dest'){p.style.top=n.style.top='68px'}
+  const upd=()=>{p.style.display=r.scrollLeft>5?'grid':'none';n.style.display=r.scrollLeft+r.clientWidth<r.scrollWidth-5?'grid':'none'};
+  p.onclick=()=>r.scrollBy({left:-532});n.onclick=()=>r.scrollBy({left:532});r.onscroll=upd;upd();addEventListener('resize',upd);
+}
+document.querySelectorAll('[data-rail]').forEach(b=>{const k=b.dataset.rail;fill(b,k=='dest'?dests.places.map(dest).join(''):offers[k].map(card).join(''))});
+document.querySelectorAll('.pill').forEach((p,i)=>p.onclick=()=>{document.querySelectorAll('.pill').forEach(q=>q.classList.toggle('on',q==p));fill(document.querySelector('[data-rail=dest]'),dests[['places','cruising','tours'][i]].map(dest).join(''))});
+const toast=t=>{const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),1600)};
+document.addEventListener('click',e=>{
+  const h=e.target.closest('.heart');if(h){h.classList.toggle('on');return}
+  const a=e.target.closest('a,.view,.banner button');if(a){e.preventDefault();toast('Mock-up only: this link isn’t built')}
+});
+</script>
+</body>
+</html>

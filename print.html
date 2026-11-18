@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Luxury Landing printout</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+:root{--teal:#11464f;--red:#d2223c;--muted:#5d5d5d}
+*{box-sizing:border-box;margin:0}
+body{width:210mm;height:297mm;padding:11mm 12mm 9mm;font:9pt/1.4 Inter,sans-serif;color:#1b1b1b;display:flex;flex-direction:column;gap:4mm;overflow:hidden}
+html{height:297mm;overflow:hidden}
+header{display:flex;gap:6mm;align-items:flex-start}
+h1{font:400 22pt/1.1 "Source Serif 4",serif;letter-spacing:-.01em}
+h1 em{font-style:italic;font-weight:600}
+.sub{margin-top:2.5mm;color:var(--muted);font-size:9.5pt;max-width:120mm}
+.qr{margin-left:auto;text-align:center;font-size:6.5pt;color:var(--muted);flex:none}
+.qr img{width:25mm;height:25mm;display:block;margin:0 auto 1.5mm}
+.qr b{display:block;color:#1b1b1b;font-size:7pt;font-weight:600}
+.row{display:flex;align-items:center;gap:6mm}
+.cap{width:44mm;flex:none}
+.cap .n{display:inline-grid;place-items:center;width:6mm;height:6mm;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;font-size:8.5pt;margin-bottom:2mm}
+.cap h2{font:600 11pt/1.25 Inter,sans-serif}
+.cap p{color:var(--muted);font-size:8pt;margin-top:1mm}
+.big{font:600 24pt/1 Inter,sans-serif;margin-top:3mm}.big small{display:block;font-size:7.5pt;font-weight:500;color:var(--muted);margin-top:1mm}
+.dev{flex:1;display:flex;justify-content:center}
+.screen{position:relative;overflow:hidden;background:#fff}
+.screen img{display:block;width:100%}
+.mark{position:absolute;top:0;bottom:0;left:0;background:rgba(210,34,60,.2);border-right:.5mm dashed var(--red)}
+.mark.ok{background:rgba(17,70,79,.16);border-color:var(--teal)}
+.laptop{width:92mm}
+.laptop .lid{background:#1d1d1f;border-radius:3mm 3mm 0 0;padding:3mm 3mm 3.5mm}
+.laptop .base{height:3mm;background:linear-gradient(#c9c9cc,#9a9a9e);border-radius:0 0 3.5mm 3.5mm;margin:0 -8mm;position:relative}
+.laptop .base:before{content:"";position:absolute;left:42%;right:42%;top:0;height:1mm;background:#808084;border-radius:0 0 1.5mm 1.5mm}
+.monitor{width:116mm}
+.monitor .bezel{background:#1d1d1f;border-radius:2mm;padding:1.8mm 1.8mm 3mm}
+.monitor .neck{width:15mm;height:6mm;margin:0 auto;background:linear-gradient(90deg,#2a2a2c,#48484b,#2a2a2c)}
+.monitor .foot{width:44mm;height:2mm;margin:0 auto;background:#2f2f31;border-radius:2mm 2mm 1mm 1mm}
+.red{color:var(--red)}.teal{color:var(--teal)}
+footer{margin-top:auto;font-size:6.5pt;color:var(--muted);display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Luxury Escapes landing page<br>on <em>different screens</em></h1>
+    <p class="sub">The content sits in a fixed column about 1140px wide. On a bigger screen every extra pixel goes into the side margins, while the header still runs edge to edge.</p>
+  </div>
+  <div class="qr"><img src="img/qr.svg" alt="QR code"><b>Scroll the live mock-ups</b>joetherockhey.github.io/luxury-landing</div>
+</header>
+
+<div class="row">
+  <div class="cap"><span class="n">1</span><h2>Lenovo 14″ laptop</h2><p>1280px wide in the browser</p><div class="big teal">5%<small>left margin</small></div></div>
+  <div class="dev"><div class="laptop"><div class="lid"><div class="screen"><img src="shots/laptop.png"><div class="mark ok" style="width:5.5%"></div></div></div><div class="base"></div></div></div>
+</div>
+
+<div class="row">
+  <div class="cap"><span class="n">2</span><h2>HP 27″ monitor, today</h2><p>1920px wide. Same column, so the gap grows and offers still show 2.7 cards.</p><div class="big red">20%<small>left margin</small></div></div>
+  <div class="dev"><div class="monitor"><div class="bezel"><div class="screen"><img src="shots/monitor-today.png"><div class="mark" style="width:20.3%"></div></div></div><div class="neck"></div><div class="foot"></div></div></div>
+</div>
+
+<div class="row">
+  <div class="cap"><span class="n">3</span><h2>HP 27″, what it could look like</h2><p>Margins set to 5% of the screen. Content lines up with the header and shows 3.5 offers.</p><div class="big teal">5%<small>left margin</small></div></div>
+  <div class="dev"><div class="monitor"><div class="bezel"><div class="screen"><img src="shots/monitor-wide.png"><div class="mark ok" style="width:5%"></div></div></div><div class="neck"></div><div class="foot"></div></div></div>
+</div>
+
+<footer><span>Joseph Hoffmann · recreated mock-up, measured from screenshots taken 18 Nov 2026</span><span>Not affiliated with Luxury Escapes · photos © Luxury Escapes</span></footer>
+</body>
+</html>
