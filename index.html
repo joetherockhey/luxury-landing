@@ -50,24 +50,24 @@ footer{margin-top:28px;font-size:12px;color:var(--muted)}
   <p class="lead">Same page, same content width. On a 27″ monitor the empty side margin grows from <span class="stat" style="background:var(--teal)">5%</span> to <span class="stat">20%</span> of the screen. Scroll and tap inside each screen.</p>
 
   <figure>
-    <figcaption><span class="n">1</span><div><b>14″ laptop</b><br><span>1920×1200 at 150% = 1280px wide</span></div></figcaption>
+    <figcaption><span class="n">1</span><div><b>14″ laptop</b><br><span>Left margin: 5% of the screen’s width</span></div></figcaption>
     <div class="laptop"><div class="lid"><div class="screen" data-w="1280" data-h="800" data-mark="5.5" data-label="5%" data-ok><iframe src="mock.html" title="Laptop view"></iframe></div></div><div class="base"></div></div>
   </figure>
 
   <figure>
-    <figcaption><span class="n">2</span><div><b>27″ monitor, today</b><br><span>1920×1080 = 1920px wide</span></div></figcaption>
+    <figcaption><span class="n">2</span><div><b>27″ monitor, today</b><br><span>Left margin: 20% of the screen’s width</span></div></figcaption>
     <div class="monitor"><div class="bezel"><div class="screen" data-w="1920" data-h="1080" data-mark="20.3"><iframe src="mock.html" title="27-inch monitor today"></iframe></div></div><div class="neck"></div><div class="foot"></div></div>
   </figure>
 
   <figure>
-    <figcaption><span class="n">3</span><div><b>27″ monitor, what it could look like</b><br><span>Margins kept at 5% of the screen</span></div></figcaption>
+    <figcaption><span class="n">3</span><div><b>27″ monitor, what it could look like</b><br><span>Left margin: back to 5% of the screen’s width</span></div></figcaption>
     <div class="monitor"><div class="bezel"><div class="screen" data-w="1920" data-h="1080" data-mark="5" data-ok><iframe src="mock.html?v=wide" title="27-inch monitor proposed"></iframe></div></div><div class="neck"></div><div class="foot"></div></div>
   </figure>
 
   <div class="why">
     <h2>What I think is going on</h2>
-    <p>The content sits in a fixed column about 1140px wide, centred. Every extra pixel of screen goes into the side margins: about 70px each side on the laptop, about 390px on the 27″. The header still runs edge to edge, so the logo and the content no longer line up, and the offer rows show the same 2.7 cards as on a laptop.</p>
-    <p>One fix: size the margins as a share of the screen (5%) instead of fixing the column. Big screens then show about 3.5 offers per row and the page lines up with the header.</p>
+    <p>The content stays the same size on every screen. On a laptop that leaves a thin margin, 5% of the screen’s width on the left. On a 27″ monitor all the extra space turns into empty margin, so the left margin becomes 20% of the screen’s width. The menu bar still stretches edge to edge, so the logo and the content no longer line up, and you still only see 2.7 offers, same as the laptop.</p>
+    <p>One fix: let the margin grow with the screen so it stays at 5%, instead of keeping the content a fixed size. Big screens then show about 3.5 offers per row and the page lines up with the header.</p>
   </div>
 
   <footer>Unofficial mock-up by Joseph Hoffmann, made for discussion. Not affiliated with Luxury Escapes. Photos and brand © Luxury Escapes.</footer>
